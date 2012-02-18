@@ -1,0 +1,19 @@
+@import "base";
+
+body {
+    background: #f7f6f3 url('../images/bg.jpg') top center;
+}
+
+[role=banner] {
+    background: url('../images/logo.png') center no-repeat;
+    height: 100px;
+    text-indent: -9999em;
+}
+
+article {
+    padding-bottom: 1em;
+}
+
+#map {
+    height: 300px;
+}
