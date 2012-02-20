@@ -23,12 +23,13 @@
                     zoomControlOptions: {
                         style: google.maps.ZoomControlStyle.SMALL
                     },
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    zoom: 8
                 };
                 var map = new google.maps.Map(document.getElementById('map'), options);
                 var locations = [
-                    ['Söderfors Kyrka', 60.385123737847756, 17.231744527816772, 'curch'],
-                    ['Söderfors Herrgård', 60.38268479864742, 17.237130403518677, 'villa']
+                    ['Söderfors Kyrka', 60.38486394649361, 17.233375310897827, 'curch'],
+                    ['Söderfors Herrgård', 60.38406335194086, 17.238171100616455, 'villa']
                 ];
                 var marker, i, position, anchor;
                 for (i = 0; i < locations.length; i++) {
@@ -42,6 +43,20 @@
                     });
                     bounds.extend(position);
                 }
+
+                google.maps.event.addListener(map, 'zoom_changed', function() {
+                    zoomChangeBoundsListener = 
+                        google.maps.event.addListener(map, 'bounds_changed', function(event) {
+                            if (this.getZoom() > 15 && this.initialZoom == true) {
+                                // Change max/min zoom here
+                                this.setZoom(15);
+                                this.initialZoom = false;
+                            }
+                        google.maps.event.removeListener(zoomChangeBoundsListener);
+                    });
+                });
+                map.initialZoom = true;
+
                 map.fitBounds(bounds);
             }
         </script>

@@ -1,0 +1,11 @@
+@import "base";
+
+a {
+    color: #532070;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}

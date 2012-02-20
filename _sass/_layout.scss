@@ -6,14 +6,27 @@ body {
 
 [role=banner] {
     background: url('../images/logo.png') center no-repeat;
-    height: 100px;
+    height: 159px;
     text-indent: -9999em;
 }
 
 article {
-    padding-bottom: 1em;
+    margin: 0 auto;
+    padding: 1em 15px;
+    max-width: 600px;
+    border-top: 1px solid #fff;
+    border-bottom: 2px solid #eee;
+
+    &.first {
+        border-top: 0;
+    }
+
+    &.last {
+        border-bottom: 0;
+    }
 }
 
 #map {
     height: 300px;
+    margin-bottom: 1em;
 }
